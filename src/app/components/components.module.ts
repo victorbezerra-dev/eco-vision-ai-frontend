@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UrbanDegradationMapComponent } from './urban-degradation-map/urban-degradation-map.component';
 import { ZipUploaderComponent } from './zip-uploader/zip-uploader.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { StatsPieCardComponent } from './stats-card/stats-pie-card.component';
 
 @NgModule({
   imports: [
@@ -22,13 +23,15 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     NavbarComponent,
     SidebarComponent,
     UrbanDegradationMapComponent,
+    StatsPieCardComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
     UrbanDegradationMapComponent,
-    ZipUploaderComponent
+    ZipUploaderComponent,
+    StatsPieCardComponent
   ]
 })
 export class ComponentsModule { }

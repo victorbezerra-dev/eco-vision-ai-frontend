@@ -1,0 +1,14 @@
+.card.card-stats .icon {
+  width: 48px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}
+
+
+canvas {
+  max-width: 300px; /* ajuste livre: 200–300px */
+  max-height: 300px;
+  width: 100% !important;
+  height: auto !important;
+}
