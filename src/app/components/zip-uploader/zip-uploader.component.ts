@@ -3,8 +3,6 @@ import { NgxFileDropEntry, FileSystemFileEntry } from 'ngx-file-drop';
 import { UploadService } from 'src/app/services/upload.service';
 import { HttpEventType } from '@angular/common/http';
 
-
-
 @Component({
   selector: 'app-zip-uploader',
   templateUrl: './zip-uploader.component.html',
@@ -43,7 +41,6 @@ export class ZipUploaderComponent {
     this.clearError();
   }
 
-  // Simulação de upload (troque por HttpClient com reportProgress)
   upload() {
     if (!this.file || this.uploading) return;
 
@@ -53,11 +50,9 @@ export class ZipUploaderComponent {
 
     this.uploadService.uploadZip(this.file).subscribe({
       next: (event) => {
-        // progresso
         if (event.type === HttpEventType.UploadProgress && event.total) {
           this.progress = Math.round(100 * event.loaded / event.total);
         }
-        // resposta final
         else if (event.type === HttpEventType.Response) {
           this.uploading = false;
           this.progress = 100;
@@ -83,7 +78,6 @@ export class ZipUploaderComponent {
     this.file = f;
     this.progress = 0;
     this.uploading = false;
-    // opcional: iniciar upload automático
     // void this.upload();
   }
 

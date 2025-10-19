@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
-  private readonly apiUrl = 'http://localhost:8000/upload';
+  private readonly apiUrl = 'API_URL';
 
   constructor(private http: HttpClient) {}
 
