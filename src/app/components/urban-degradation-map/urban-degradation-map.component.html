@@ -1,0 +1,17 @@
+<div class="card shadow border-0">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    <h5 class="mb-0">{{ title }}</h5>
+    <div class="card-actions" >
+      <button class="btn btn-sm btn-ocean" (click)="onAddNewClick()">
+       + Adicionar novo
+      </button>
+      <button class="btn btn-sm btn-outline-primary" (click)="resetView()">
+        Resetar visualização
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body p-0">
+    <div id="udm-map" class="udm-map"></div>
+  </div>
+</div>

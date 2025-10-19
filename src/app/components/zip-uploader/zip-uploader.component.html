@@ -1,0 +1,62 @@
+<div class="uploader">
+  <div class="drop-wrap">
+    <ngx-file-drop
+      [dropZoneLabel]="' '"
+      [accept]="'.zip'"
+      [multiple]="false"
+      [showBrowseBtn]="false"
+      (onFileDrop)="handleDrop($event)"
+      (onFileOver)="isOver = true"
+      (onFileLeave)="isOver = false"
+      [ngClass]="{ over: isOver }">
+
+      <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+        <div class="drop-content">
+          <div class="icon">📦</div>
+          <div class="text" *ngIf="!file">
+            Arraste um <strong>.zip</strong> aqui<br />
+            ou use o botão abaixo
+          </div>
+
+          <div class="text" *ngIf="file">
+            Arquivo pronto para envio:<br />
+            <strong>{{ fileName }}</strong>
+          </div>
+
+          <button
+            type="button"
+            class="btn"
+            *ngIf="!file"
+            (click)="openFileSelector($event)">
+            Selecionar .zip
+          </button>
+
+          <button
+            type="button"
+            class="btn send"
+            *ngIf="file && !uploading"
+            (click)="upload()">
+            Enviar
+          </button>
+        </div>
+      </ng-template>
+    </ngx-file-drop>
+
+    <div class="info" *ngIf="file || errorMsg">
+      <div class="file" *ngIf="file">
+        <div>
+          <strong>{{ fileName }}</strong>
+          <div class="muted">{{ fileSizeMB }} MB</div>
+        </div>
+        <button class="link" (click)="removeFile()" [disabled]="uploading">remover</button>
+      </div>
+
+      <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div>
+    </div>
+
+    <div class="progress" *ngIf="uploading || progress > 0">
+      <div class="bar" [style.width.%]="progress"></div>
+      <div class="percent">{{ progress }}%</div>
+    </div>
+  </div>
+</div>

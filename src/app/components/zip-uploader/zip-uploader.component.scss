@@ -1,0 +1,182 @@
+.uploader {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.drop-wrap {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 16px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Caixa principal */
+::ng-deep ngx-file-drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 320px;
+  border: 2px dashed #4b9cff;
+  border-radius: 16px;
+  background-color: #f8faff;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+::ng-deep ngx-file-drop:hover {
+  border-color: #0078ff;
+  background-color: #ebf4ff;
+  box-shadow: 0 0 0 4px rgba(0,120,255,0.1);
+}
+
+/* Quando o arquivo é arrastado sobre a área */
+::ng-deep ngx-file-drop.over {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,120,255,0.18);
+}
+
+/* Remove o botão padrão da lib */
+::ng-deep ngx-file-drop a,
+::ng-deep .ngx-file-drop__browse {
+  display: none !important;
+}
+
+/* Drop zone real */
+::ng-deep .ngx-file-drop__drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+  width: 100% !important;
+  border: none !important;
+}
+
+/* Conteúdo interno */
+.drop-content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .icon {
+  font-size: 58px;
+  width: auto;
+  height: auto;
+  opacity: 0.75;
+}
+
+::ng-deep ngx-file-drop.over .icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(0, 120, 255, 0.4));
+}
+
+.text {
+  text-align: center;
+  line-height: 1.4;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.text strong {
+  color: #0078ff;
+}
+
+/* Botões */
+.btn {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #0078ff;
+  background: #0078ff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  background: #0062d1;
+  box-shadow: 0 4px 14px rgba(0, 120, 255, 0.25);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn.send {
+  background: #22c55e;
+  border-color: #16a34a;
+}
+
+.btn.send:hover {
+  background: #16a34a;
+  box-shadow: 0 4px 14px rgba(22,163,74,0.25);
+}
+
+/* Info */
+.info {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.file {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef4ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid #cfe1ff;
+}
+
+.file strong { color: #1e3a8a; font-weight: 600; }
+.file .muted { color: #6b7280; font-size: 12px; }
+
+button.link {
+  background: none;
+  border: none;
+  color: #0078ff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button.link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* Barra de progresso */
+.progress {
+  width: 100%;
+  margin-top: 16px;
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress .bar {
+  height: 100%;
+  background-color: #0078ff;
+  width: 0;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progress .percent {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  font-size: 12px;
+  color: #374151;
+}

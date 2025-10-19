@@ -1,0 +1,34 @@
+/* Gradientes personalizados */
+.bg-gradient-ocean {
+  background: linear-gradient(135deg, #0d6efd 0%, #71c9ff 100%) !important;
+  color: #fff !important;
+}
+
+/* Opções extras de azul, se quiser testar */
+.bg-gradient-azure {
+  background: linear-gradient(87deg, #0057ff 0%, #4ac7ff 100%) !important;
+}
+.bg-gradient-deepblue {
+  background: linear-gradient(87deg, #0a2a6b 0%, #0575e6 100%) !important;
+}
+
+/* Legibilidade do texto sobre gradiente */
+.bg-gradient-ocean,
+.bg-gradient-azure,
+.bg-gradient-deepblue {
+  color: #fff !important;
+}
+.bg-gradient-ocean a,
+.bg-gradient-azure a,
+.bg-gradient-deepblue a {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.bg-gradient-eco {
+  background: linear-gradient(135deg, #00c7ff 0%, #007bff 100%) !important;
+  color: #fff !important;
+}
+
+.bg-gradient-eco a {
+  color: rgba(255,255,255,0.9) !important;
+}
