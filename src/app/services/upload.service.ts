@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
-  private readonly baseUrl = 'http://localhost:3000/upload';
+  private readonly apiUrl = 'API_URL';
 
   constructor(private http: HttpClient) {}
 
@@ -12,7 +12,7 @@ export class UploadService {
     const form = new FormData();
     form.append('file', file, file.name);
 
-    const req = new HttpRequest('POST', this.baseUrl, form, {
+    const req = new HttpRequest('POST', this.apiUrl, form, {
       reportProgress: true,
     });
 

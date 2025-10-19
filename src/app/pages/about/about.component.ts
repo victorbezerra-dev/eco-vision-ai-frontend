@@ -22,20 +22,23 @@ export class AboutComponent {
     { label: 'Leaflet', value: 'Mapas OSM' },
     { label: 'Bootstrap/Argon', value: 'UI base' },
     { label: 'RxJS', value: 'streams' },
-    { label: 'Node/Express', value: 'API (ex.)' },
-    { label: 'Python', value: 'Treino/serving modelo (ex.)' },
+    { label: 'FastAPI (Python)', value: 'API' },
+    { label: 'Python', value: 'Treino/serving modelo' },
   ];
 
   stats = [
-    { value: '97.4%', label: 'Precisão média (mAP50)', icon: 'fas fa-bullseye text-success' },
-    { value: '12.5 ms', label: 'Latency (inference)', icon: 'fas fa-tachometer-alt text-info' },
-    { value: '3.2M', label: 'Frames processados', icon: 'fas fa-film text-primary' },
+    { value: '97.4%', label: 'Precisão média (mAP)', icon: 'fas fa-bullseye text-success' },
+    { value: '12.5 ms', label: 'Latência (inferência)', icon: 'fas fa-tachometer-alt text-info' },
+    { value: 'YOLOv11', label: 'Modelo base', icon: 'fas fa-brain text-danger' },
     { value: '18', label: 'Cidades-piloto', icon: 'fas fa-city text-warning' },
   ];
 
   team = [
     { name: 'João Victor Bezerra', role: 'Founder / Eng. Controle & Mobile', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }, { icon: 'fab fa-linkedin', href: '#' }] },
-    { name: 'Colaborador A', role: 'Visão Computacional', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }] },
+    { name: 'José Vitor Melo', role: 'Co-Founder / ADS e Backend', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }, { icon: 'fab fa-linkedin', href: '#' }] },
+    { name: 'Erickson Thiago Sales Lira', role: 'Comercial / Eng. Controle', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }, { icon: 'fab fa-linkedin', href: '#' }] },
+    { name: 'Adriano Estevam Couto', role: 'Financeiro / Eng. Controle', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }, { icon: 'fab fa-linkedin', href: '#' }] },
+    { name: 'Carlos Daniel Bittencourt Lima', role: 'Marketing / Eng. Controle', avatar: '', links: [{ icon: 'fab fa-github', href: '#' }, { icon: 'fab fa-linkedin', href: '#' }] },
   ];
 
   milestones = [
@@ -47,5 +50,6 @@ export class AboutComponent {
   contacts = [
     { icon: 'fas fa-envelope', text: 'contato@ecovision.ai', href: 'mailto:contato@ecovision.ai' },
     { icon: 'fas fa-globe', text: 'ecovision.ai', href: 'https://ecovision.ai' },
+    { icon: 'fas fa-phone', text: '(69) 99365-4224', href: 'wa.me/+5569993654224' },
   ];
 }

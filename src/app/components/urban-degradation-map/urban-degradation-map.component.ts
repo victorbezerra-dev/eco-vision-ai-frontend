@@ -19,7 +19,7 @@ import { DetectionsService } from "src/app/services/detections.service";
 })
 export class UrbanDegradationMapComponent implements AfterViewInit, OnDestroy {
   @Input() title = "Mapa de Degradação Urbana";
-  @Input() center: L.LatLngExpression = [-8.7600, -63.9000];
+  @Input() center: L.LatLngExpression = [-8.7620, -63.9039];
   @Input() zoom = 13;
 
   @Input() refreshMs = 0;
