@@ -1,1 +1,157 @@
-<p>about works!</p>
+<div class="header bg-gradient-eco pb-7 pt-md-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="text-white mb-1">{{ appName }}</h1>
+          <p class="text-white-80 mb-0">
+            {{ version }} • build {{ buildDate }} • Monitoramento inteligente de degradação urbana
+          </p>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-light px-3 py-2 rounded-pill">
+            <i class="fas fa-info-circle mr-1"></i> About
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <!-- Missão -->
+    <div class="col-xl-6 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-leaf text-success mr-2"></i>Missão</h5>
+          <p class="text-muted mb-0">
+            A {{ appName }} acelera a identificação de problemas urbanos (lixo, asfalto danificado, obstruções) com visão computacional e mapas interativos,
+            priorizando ações e reduzindo custos operacionais para cidades mais limpas e seguras.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- O que detectamos -->
+    <div class="col-xl-6 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-search-location text-primary mr-2"></i>O que detectamos</h5>
+          <div class="row">
+            <div class="col-sm-6" *ngFor="let f of features">
+              <div class="media mb-3">
+                <div class="icon icon-shape bg-soft rounded-circle mr-3">
+                  <i [class]="f.icon"></i>
+                </div>
+                <div class="media-body">
+                  <h6 class="mb-1">{{ f.title }}</h6>
+                  <p class="text-muted small mb-0">{{ f.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="small text-muted mt-2">
+            * Os números/nomes são exemplos — personalize conforme seu projeto.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Métricas + Stack -->
+  <div class="row">
+    <div class="col-xl-7 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-chart-line text-info mr-2"></i>Métricas</h5>
+          <div class="row">
+            <div class="col-md-6 col-lg-6 mb-3" *ngFor="let s of stats">
+              <div class="d-flex align-items-center metric">
+                <i [class]="s.icon + ' metric-icon'"></i>
+                <div class="ml-3">
+                  <div class="h3 mb-0 font-weight-bold">{{ s.value }}</div>
+                  <div class="text-muted small">{{ s.label }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6 class="mb-3"><i class="fas fa-tools mr-2 text-secondary"></i>Stack técnica</h6>
+          <div class="stack-list">
+            <span class="badge badge-primary-soft mr-2 mb-2" *ngFor="let t of stack">{{ t.label }}: {{ t.value }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha do tempo -->
+    <div class="col-xl-5 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-stream text-warning mr-2"></i>Marcos</h5>
+          <ul class="timeline">
+            <li class="timeline-item" *ngFor="let m of milestones">
+              <div class="timeline-point"></div>
+              <div class="timeline-content">
+                <div class="small text-muted">{{ m.date }}</div>
+                <div class="font-weight-600">{{ m.title }}</div>
+                <div class="text-muted small">{{ m.desc }}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Equipe + Contato -->
+  <div class="row">
+    <div class="col-xl-8 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-users text-primary mr-2"></i>Equipe</h5>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3" *ngFor="let m of team">
+              <div class="team-card">
+                <div class="team-avatar">
+                  <span *ngIf="!m.avatar" class="avatar-fallback">
+                    {{ m.name[0] }}
+                  </span>
+                </div>
+                <div class="team-info">
+                  <div class="team-name">{{ m.name }}</div>
+                  <div class="team-role text-muted small">{{ m.role }}</div>
+                  <div class="team-links mt-2">
+                    <a *ngFor="let l of m.links" [href]="l.href" target="_blank" rel="noreferrer" class="mr-2">
+                      <i [class]="l.icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted small mb-0">Quer colaborar? Fale com a gente 👇</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 mb-4">
+      <div class="card shadow border-0 h-100">
+        <div class="card-body">
+          <h5 class="mb-3"><i class="fas fa-paper-plane text-success mr-2"></i>Contato</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2" *ngFor="let c of contacts">
+              <i [class]="c.icon + ' mr-2 text-secondary'"></i>
+              <a [href]="c.href" target="_blank" rel="noreferrer">{{ c.text }}</a>
+            </li>
+          </ul>
+          <hr>
+          <div class="small text-muted">
+            © 2025 — Todos os direitos reservados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
