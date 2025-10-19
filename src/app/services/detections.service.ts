@@ -5,7 +5,7 @@ import { DetectionItem, DetectionResponse } from '../models/detection';
 
 @Injectable({ providedIn: 'root' })
 export class DetectionsService {
-  private readonly API_URL = 'API_URL';
+  private readonly API_URL = 'http://localhost:8000/pontos';
 
   constructor(private http: HttpClient) {}
 

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry } from 'ngx-file-drop';
+import { UploadService } from 'src/app/services/upload.service';
+import { HttpEventType } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-zip-uploader',
@@ -10,6 +14,8 @@ export class ZipUploaderComponent {
   isOver = false;
   uploading = false;
   progress = 0;
+
+  constructor(private uploadService: UploadService) { }
 
   file: File | null = null;
   errorMsg = '';
@@ -38,20 +44,33 @@ export class ZipUploaderComponent {
   }
 
   // Simulação de upload (troque por HttpClient com reportProgress)
-  async upload() {
+  upload() {
     if (!this.file || this.uploading) return;
+
     this.uploading = true;
     this.progress = 0;
+    this.clearError();
 
-    const step = 8;
-    const timer = setInterval(() => {
-      this.progress = Math.min(100, this.progress + step);
-      if (this.progress >= 100) {
-        clearInterval(timer);
+    this.uploadService.uploadZip(this.file).subscribe({
+      next: (event) => {
+        // progresso
+        if (event.type === HttpEventType.UploadProgress && event.total) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        }
+        // resposta final
+        else if (event.type === HttpEventType.Response) {
+          this.uploading = false;
+          this.progress = 100;
+          console.log('Upload concluído:', event.body);
+        }
+      },
+      error: (err) => {
         this.uploading = false;
+        this.errorMsg = err.error?.error || 'Erro no upload';
       }
-    }, 150);
+    });
   }
+
 
   // --- helpers ---
   private trySetFile(f: File) {
